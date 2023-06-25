@@ -1,6 +1,7 @@
 import axios from 'axios';
 import WebSocket from 'ws';
 import { Message } from '../core/message.js';
+import { Events } from "../core/events.js"
 
 export async function startBot(bot) {
   // Connect to Discord's WebSocket API
@@ -14,14 +15,20 @@ export async function startBot(bot) {
 
   ws.on('message', async (data) => {
     const message = await JSON.parse(data);
-
-    if (message.t === 'MESSAGE_CREATE') {
+    if (message.t == Events.MESSAGE_CREATE) {
       for(let i = 0; i < bot.message_commands.length; i++) {
         if(message.d.content == bot.prefix + bot.message_commands[i].name){
-          bot.message_commands[0].execute({ interaction: new Message(bot, message)});
+          await bot.message_commands[0].execute({ interaction: new Message(bot, message)});
         }
       }
     }
+    
+    for(let i = 0; i < bot.listeners.length; i++) {
+      if(bot.listeners[i].event == message.t){
+        await bot.listeners[i].callback({ interaction: new Message(bot, message)});
+      }
+    }
+
   });
 
   function sendIdentifyPayload() {

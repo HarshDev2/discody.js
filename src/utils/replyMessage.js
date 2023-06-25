@@ -6,9 +6,10 @@ export async function replyMessage(bot, message, replyMessage, options) {
     const channelId = message.channel_id;
       const response = await axios.post(`https://discord.com/api/v10/channels/${channelId}/messages`, {
         content: replyMessage,
-        embeds: [
+        embeds: options.embed ? [
           options.embed
         ]
+        : []
       }, {
         headers: {
           Authorization: `Bot ${bot.token}`,
