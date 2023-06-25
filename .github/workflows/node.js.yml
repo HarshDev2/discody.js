@@ -1,0 +1,37 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Check for lock file changes
+      id: lock-check
+      run: echo "::set-output name=lock-changed::$(git diff --name-only ${{ github.base_ref }}..${{ github.head_ref }} | grep -E 'package-lock.json|npm-shrinkwrap.json' | wc -l)"
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install dependencies
+      run: |
+        if [[ "${{ steps.lock-check.outputs.lock-changed }}" -ne 0 ]]; then
+          npm ci
+        else
+          echo "Lock file not changed. Skipping 'npm ci'."
+        fi
+    - name: Run tests
+      run: npm run test
