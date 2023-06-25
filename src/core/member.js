@@ -23,7 +23,7 @@ export class Member {
   /**
    * Kicks the current member from the guild.
    */
-  kick() {
+  async kick() {
     /**
      * Kicks a member from the guild.
      * @param {string} memberId - The ID of the member to kick.
@@ -35,7 +35,7 @@ export class Member {
   /**
    * Bans the current member from the guild.
    */
-  ban() {
+  async ban() {
     await banMember(this.bot, this.guild.id, this.member.id);
   }
 }
