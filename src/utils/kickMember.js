@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export async function kickMember(bot, guild, id){
+export async function kickMember(bot, guildId, memberId){
     try {
-        let data = await axios.delete(`https://discord.com/api/guilds/${guild.id}/members/${id}`, {
+        let data = await axios.delete(`https://discord.com/api/guilds/${guildId}/members/${memberId}`, {
             headers: {
                 Authorization: `Bot ${bot.token}`
             }

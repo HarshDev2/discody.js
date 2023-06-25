@@ -1,3 +1,4 @@
+import { banMember } from "../utils/banMember.js";
 import { kickMember } from "../utils/kickMember.js";
 import { Bot } from "./bot.js";
 import { Guild } from "./guild.js"
@@ -15,6 +16,7 @@ export class Member {
   constructor(bot, guild, member) {
     this.bot = bot;
     this.guild = guild;
+    this.roles = 
     Object.assign(this, member);
   }
 
@@ -27,13 +29,13 @@ export class Member {
      * @param {string} memberId - The ID of the member to kick.
      * @throws {Error} If an error occurs during the kicking process.
      */
-    kickMember(this.bot, this.guild, this.member.id);
+    await kickMember(this.bot, this.guild.id, this.member.id);
   }
 
   /**
    * Bans the current member from the guild.
    */
   ban() {
-    // Implementation goes here
+    await banMember(this.bot, this.guild.id, this.member.id);
   }
 }
