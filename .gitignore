@@ -1,0 +1,5 @@
+dist
+.env
+node_modules
+# test-bot is a folder where a simple test bot is create which is used to test commands.
+test-bot
