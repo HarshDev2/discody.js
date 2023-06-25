@@ -1,13 +1,39 @@
 import { kickMember } from "../utils/kickMember.js";
+import { Bot } from "./bot.js";
+import { Guild } from "./guild.js"
 
+/**
+ * Represents a guild member.
+ */
 export class Member {
-    constructor(bot, guild, member){
-        this.bot = bot;
-        this.guild = guild;
-        Object.assign(this, member);
-    }
-    kick(){
-        kickMember(this.bot, this.guild, this.member.id);
-    }
-    ban(){}
+  /**
+   * Creates a new Member instance.
+   * @param {Bot} bot - The bot instance.
+   * @param {Guild} guild - The guild the member belongs to.
+   * @param {Object} member - The member data.
+   */
+  constructor(bot, guild, member) {
+    this.bot = bot;
+    this.guild = guild;
+    Object.assign(this, member);
+  }
+
+  /**
+   * Kicks the current member from the guild.
+   */
+  kick() {
+    /**
+     * Kicks a member from the guild.
+     * @param {string} memberId - The ID of the member to kick.
+     * @throws {Error} If an error occurs during the kicking process.
+     */
+    kickMember(this.bot, this.guild, this.member.id);
+  }
+
+  /**
+   * Bans the current member from the guild.
+   */
+  ban() {
+    // Implementation goes here
+  }
 }
