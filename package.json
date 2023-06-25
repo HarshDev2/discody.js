@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest",
-    "dev": "tsc --watch"
+    "dev": "node test-bot/main.js"
   },
   "keywords": [],
   "author": "Harsh Agrawal",
