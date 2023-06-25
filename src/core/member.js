@@ -6,7 +6,7 @@ export class Member {
         this.guild = guild;
         Object.assign(this, member);
     }
-    kick(id){
+    kick(){
         kickMember(this.bot, this.guild, this.member.id);
     }
     ban(){}
