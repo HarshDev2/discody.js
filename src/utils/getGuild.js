@@ -13,6 +13,7 @@ export async function getGuild(bot, id) {
         return guild;
     }
     catch (err) {
-        throw new Error(err);
+        if (err.response.status == 404) return undefined;
+        else throw new Error(err);
     }
 }
