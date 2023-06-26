@@ -4,6 +4,8 @@ import { IntegerOptionBuilder } from '../core/integerOptionBuilder.js'
 import { BooleanOptionBuilder } from '../core/booleanOptionBuilder.js'
 import { UserOptionBuilder } from '../core/userOptionBuiler.js'
 import { FloatOptionBuilder } from '../core/floatOptionBuilder.js'
+import { ChannelOptionBuilder } from '../core/channelOptionBuilder.js'
+import { RoleOptionBuilder } from '../core/roleOptionBuilder.js'
 
 
 /**
@@ -68,10 +70,20 @@ export class SlashCommandBuilder {
     this.command.options.push(builder.option)
     return this;
   }
-  addChannelOption(){}
-  addRoleOption(){}
-  addMentionableOption(){}
-  addAttachmentOption(){}
+  addChannelOption(callback){
+    let builder = new ChannelOptionBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addRoleOption(callback){
+    let builder = new RoleOptionBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addMentionableOption(callback){}
+  addAttachmentOption(callback){}
 
   /**
    * Sets the description of the slash command.
