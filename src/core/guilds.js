@@ -13,6 +13,6 @@ export class Guilds {
     */
 
     async getById(id) {
-        await getGuild(bot, id);
+        return await getGuild(this.bot, id);
     }
 }

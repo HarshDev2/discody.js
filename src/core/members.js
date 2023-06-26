@@ -8,6 +8,6 @@ export class Members {
     }
     async findById(id){
         let member = await findMember(this.bot, this.guild, id);
-        return new Member(bot, guild, member);
+        return new Member(this.bot, this.guild, member);
     }
 }

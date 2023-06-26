@@ -9,10 +9,10 @@ export async function getGuild(bot, id) {
             }
         });
 
-        return new Guild(bot, data.data);
+        let guild = new Guild(bot, data.data);
+        return guild;
     }
     catch (err) {
-        if(err.response.status == 404) return undefined;
-        else throw new Error(err);
+        throw new Error(err);
     }
 }

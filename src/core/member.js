@@ -16,7 +16,6 @@ export class Member {
   constructor(bot, guild, member) {
     this.bot = bot;
     this.guild = guild;
-    this.roles = 
     Object.assign(this, member);
   }
 
@@ -29,7 +28,7 @@ export class Member {
      * @param {string} memberId - The ID of the member to kick.
      * @throws {Error} If an error occurs during the kicking process.
      */
-    await kickMember(this.bot, this.guild.id, this.member.id);
+    await kickMember(this.bot, this.guild.id, this.user.id);
   }
 
   /**

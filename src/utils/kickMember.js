@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export async function kickMember(bot, guildId, memberId){
+
+    if(!memberId) throw new Error("Member doesn't exist.");
+
     try {
         let data = await axios.delete(`https://discord.com/api/guilds/${guildId}/members/${memberId}`, {
             headers: {
