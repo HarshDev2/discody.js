@@ -14,7 +14,7 @@ export async function startBot(bot) {
   let interval;
 
   ws.on('open', async () => {
-    console.log('Info: Sucessfully Connected to the Discord Bot!');
+    console.log('Info: ✅ Sucessfully Connected to the Discord Bot!');
     
     sendIdentifyPayload();
 
