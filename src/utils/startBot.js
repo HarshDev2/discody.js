@@ -7,12 +7,12 @@ import Interaction from '../core/interaction.js';
 
 export async function startBot(bot) {
   await uploadSlashCommands(bot);
-  // Connect to Discord's WebSocket API
-  const ws = new WebSocket('wss://gateway.discord.gg/?v=9&encoding=json');
+
+  const ws = new WebSocket('wss://gateway.discord.gg/?v=10&encoding=json');
 
   ws.on('open', () => {
     console.log('Connected to Discord WebSocket');
-    // Send the identify payload to authenticate with the token
+    
     sendIdentifyPayload();
   });
 
