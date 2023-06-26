@@ -8,6 +8,7 @@ describe('Testing the SlashCommandBuilder class.', () => {
     command.setName("test").setDescription("testing the command").addNameLocalization(Localizations.Hindi, "namaste")
     expect(command.command).toEqual({
       type: 1,
+      options: [],
       name: "test",
       description: "testing the command",
       name_localizations: {
@@ -20,6 +21,7 @@ describe('Testing the SlashCommandBuilder class.', () => {
     command.setName("test").setDescription("command").addNameLocalization(Localizations.Hindi, "namaste").setNSFW(false).setDmPermissions(true)
     expect(command.command).toEqual({
       type: 1,
+      options: [],
       name: "test",
       nsfw: false,
       dm_permission: true,
@@ -34,6 +36,7 @@ describe('Testing the SlashCommandBuilder class.', () => {
     command.setName("test").setDescription("testing the command").addNameLocalization(Localizations.Hindi, "namaste")
     expect(command.command).toEqual({
       type: 1,
+      options: [],
       name: "test",
       description: "testing the command",
       name_localizations: {
