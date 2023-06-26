@@ -1,5 +1,7 @@
 import { Guilds } from "./guilds.js"
 import { startBot } from "../utils/startBot.js";
+import { getBot } from "../utils/getBot.js";
+
 /**
  * Represents a bot instance.
  */
@@ -15,6 +17,10 @@ export class Bot {
          */
         this.prefix = "!";
 
+        getBot(token).then((data) => {
+            Object.assign(this, data);
+        })
+
         /**
          * The token for the bot.
          * @type {string}
@@ -28,6 +34,12 @@ export class Bot {
         this.message_commands = [];
 
         /**
+         * An array of slash commands.
+         * @type {Object[]}
+         */
+        this.slash_commands = [];
+
+        /**
          * The guilds associated with the bot.
          * @type {Guilds}
          */
@@ -38,6 +50,10 @@ export class Bot {
          * @type {Object[]}
          */
         this.listeners = [];
+    }
+
+    async getBot(token) {
+        return await getBot(token)
     }
 
     /**
@@ -89,9 +105,12 @@ export class Bot {
 
     /**
      * Adds a slash command to the bot.
-     * @param {Object} command - The command object to add.
+     * @param {SlashCommandBuilder} command - The command object to add.
      */
     addSlashCommand(command) {
-        this.commands.push(command);
+        this.slash_commands.push({
+            command: command.command,
+            execute: command.execute
+        });
     }
 }

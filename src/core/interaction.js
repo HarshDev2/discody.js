@@ -1,12 +1,20 @@
+import { sendInteractionDeferReply } from '../utils/sendInteractionDeferReply.js'
+import { sendInteractionEditReply } from '../utils/sendInteractionEditReply.js'
+
 /**
  * Represents an interaction.
  */
 export default class Interaction {
+    constructor(bot, interaction) {
+        this.bot = bot;
+        Object.assign(this, interaction);
+    }
     /**
      * Defers replying to the interaction.
      * @param {InteractionDeferOptions} options - Options for deferring the reply.
      */
-    deferReply(options) {
+    async deferReply(options) {
+        await sendInteractionDeferReply(this.bot, this);
         this.deferred = true;
     }
 
@@ -16,9 +24,9 @@ export default class Interaction {
      * @param {InteractionReplyOptions} options - Options for replying to the interaction.
      * @throws {Error} If the interaction is deferred.
      */
-    reply(message, options) {
-        if (this.deferred) {
-            throw new Error("A deferred interaction cannot be replied. Use editReply instead.");
+    async reply(message, options) {
+        if(this.deferred){
+            await sendInteractionEditReply(this.bot, this, message, options);
         }
     }
 
@@ -26,8 +34,8 @@ export default class Interaction {
      * Edits the previously sent reply.
      * @param {string} message - The updated message to edit with.
      */
-    editReply(message) {
-        console.log(message);
+    async editReply(message) {
+        await sendInteractionEditReply(this.bot, this, message, options);
     }
 }
 

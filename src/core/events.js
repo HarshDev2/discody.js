@@ -4,6 +4,18 @@
  */
 export class Events {
   /**
+   * Emitted when the bot goes online.
+   * @type {string}
+   */
+  static READY = 'READY';
+
+  /**
+   * Emitted when a guild is created.
+   * @type {string}
+   */
+  static INTERACTION_CREATE = 'INTERACTION_CREATE';
+
+  /**
    * Emitted when a guild is created.
    * @type {string}
    */
