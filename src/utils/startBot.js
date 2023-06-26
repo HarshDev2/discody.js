@@ -52,8 +52,8 @@ export async function startBot(bot) {
         intents: 513, // Replace with the appropriate intents value for your bot
         properties: {
           $os: 'linux',
-          $browser: 'my_library',
-          $device: 'my_library'
+          $browser: 'discody.js',
+          $device: 'discody.js'
         }
       }
     };
