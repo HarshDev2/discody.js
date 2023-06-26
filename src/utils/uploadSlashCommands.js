@@ -2,7 +2,7 @@ import axios from "axios";
 import { Member } from "../core/member.js";
 
 export async function uploadSlashCommands(bot){
-    console.log("Updating the slash commands");
+    console.log("Info: Uploading the slash commands.");
     let botId;
     try {
         let data = await axios.get(`https://discord.com/api/v10/users/@me`, {
@@ -24,5 +24,6 @@ export async function uploadSlashCommands(bot){
                 }
             });
     }
+    console.log("Info: ✅ Sucessfully Uploaded the Slash Commands.")
 
 }

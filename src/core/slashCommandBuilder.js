@@ -1,4 +1,10 @@
 import { CommandTypes } from '../core/commandType.js';
+import { StringOptionBuilder } from '../core/stringOptionBuilder.js'
+import { IntegerOptionBuilder } from '../core/integerOptionBuilder.js'
+import { BooleanOptionBuilder } from '../core/booleanOptionBuilder.js'
+import { UserOptionBuilder } from '../core/userOptionBuiler.js'
+import { FloatOptionBuilder } from '../core/floatOptionBuilder.js'
+
 
 /**
  * A builder class for creating slash commands.
@@ -6,6 +12,7 @@ import { CommandTypes } from '../core/commandType.js';
 export class SlashCommandBuilder {
   constructor() {
     this.command = {};
+    this.command.options = [];
     this.command.type = CommandTypes.SLASH_COMMAND;
   }
 
@@ -28,6 +35,43 @@ export class SlashCommandBuilder {
     this.command.name_localizations[localization] = name;
     return this;
   }
+
+  addSubCommand(){}
+  addSubCommandGroup(){}
+  addStringOption(callback){
+    let builder = new StringOptionBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addIntegerOption(callback){
+    let builder = new IntegerOptionBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addFloatOption(callback){
+    let builder = new FloatOptionBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addBooleanOption(callback){
+    let builder = new BooleanOptionBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addUserOption(callback){
+    let builder = new UserOptionBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addChannelOption(){}
+  addRoleOption(){}
+  addMentionableOption(){}
+  addAttachmentOption(){}
 
   /**
    * Sets the description of the slash command.
