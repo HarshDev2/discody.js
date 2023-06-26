@@ -37,6 +37,13 @@ export default class Interaction {
     async editReply(message) {
         await sendInteractionEditReply(this.bot, this, message, options);
     }
+
+    getOption(name) {
+        if(!this.data.options) return undefined;
+        for(let i = 0; i < this.data.options.length; i++) {
+            if(this.data.options[i].name == name) return this.data.options[i].value;
+        }
+    }
 }
 
 /**
