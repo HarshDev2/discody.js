@@ -12,7 +12,7 @@ export class Guilds {
     * @returns {Promise<Guild>} A Promise that resolves to the Guild object.
     */
 
-    async get(id) {
+    async getById(id) {
         await getGuild(bot, id);
     }
 }
