@@ -6,6 +6,8 @@ import { UserOptionBuilder } from '../core/userOptionBuiler.js'
 import { FloatOptionBuilder } from '../core/floatOptionBuilder.js'
 import { ChannelOptionBuilder } from '../core/channelOptionBuilder.js'
 import { RoleOptionBuilder } from '../core/roleOptionBuilder.js'
+import { SubCommandBuilder } from './subCommandBuilder.js';
+import { SubCommandGroupBuilder } from './subCommandGroupBuilder.js';
 
 
 /**
@@ -38,8 +40,18 @@ export class SlashCommandBuilder {
     return this;
   }
 
-  addSubCommand(){}
-  addSubCommandGroup(){}
+  addSubCommand(callback){
+    let builder = new SubCommandBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
+  addSubCommandGroup(callback){
+    let builder = new SubCommandGroupBuilder();
+    callback(builder);
+    this.command.options.push(builder.option)
+    return this;
+  }
   addStringOption(callback){
     let builder = new StringOptionBuilder();
     callback(builder);
