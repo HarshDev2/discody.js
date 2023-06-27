@@ -3,6 +3,7 @@ import { Members } from "./members.js";
 import { leaveGuild } from "../utils/leaveGuild.js";
 import { getInvite } from "../utils/getInvite.js";
 import { deleteInvite } from "../utils/deleteInvite.js";
+import { getAuditLogs } from "../utils/getAuditLogs.js";
 
 export class Guild {
     constructor(bot, guild) {
@@ -10,6 +11,10 @@ export class Guild {
         this.roles = new Roles(bot, guild.roles);
         Object.assign(this, guild);
         this.members = new Members(bot, guild);
+    }
+
+    async getAuditLogs(){
+        return await getAuditLogs(this.bot.token, this.id)
     }
 
     async leave(){
