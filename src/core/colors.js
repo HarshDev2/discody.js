@@ -1,5 +1,33 @@
-class Colors {
-    addColor(color, value){
-        this[color] = value;
-    }
-}
+export class Colors {
+    static Red = 0xff0000;
+    static Orange = 0xffa500;
+    static Yellow = 0xffff00;
+    static Green = 0x00ff00;
+    static Blue = 0x0000ff;
+    static Indigo = 0x4b0082;
+    static Violet = 0xee82ee;
+    static Purple = 0x800080;
+    static Pink = 0xffc0cb;
+    static Brown = 0x964b00;
+    static Gray = 0x808080;
+    static Black = 0x000000;
+    static White = 0xffffff;
+    static Teal = 0x008080;
+    static Aqua = 0x00ffff;
+    static Coral = 0xff7f50;
+    static Gold = 0xffd700;
+    static Silver = 0xc0c0c0;
+    static Maroon = 0x800000;
+    static Navy = 0x000080;
+    static Olive = 0x808000;
+    static Lime = 0x00ff00;
+    static Fuchsia = 0xff00ff;
+    static Orchid = 0xda70d6;
+    static Salmon = 0xfa8072;
+    static Turquoise = 0x40e0d0;
+    static Plum = 0xdda0dd;
+    static Khaki = 0xf0e68c;
+    static Tomato = 0xff6347;
+    static SlateBlue = 0x6a5acd;
+    static Invisible = 0x2f3136;
+  }
