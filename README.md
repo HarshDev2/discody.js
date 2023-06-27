@@ -22,6 +22,8 @@ npm i discody@latest
 Message Commands and Slash Commands |  ✅
 Embeds | ✅
 Guilds ( Servers ) | ✅
+Invites | ✅
+Audit Logs | ✅
 Voice Features | ❌
 Sharding | ❌
 Roles Operations | ❌ ( Partial Support right now )
