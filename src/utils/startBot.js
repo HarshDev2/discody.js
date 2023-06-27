@@ -94,7 +94,7 @@ export async function startBot(bot) {
       op: 2,
       d: {
         token: `${bot.token}`,
-        intents: 513, // Replace with the appropriate intents value for your bot
+        intents: bot.intents,
         properties: {
           $os: 'linux',
           $browser: 'discody.js',

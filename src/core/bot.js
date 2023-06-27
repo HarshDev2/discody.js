@@ -10,7 +10,13 @@ export class Bot {
      * Creates a new Bot instance.
      * @param {string} token - The token for the bot.
      */
-    constructor(token) {
+    constructor(token, intents) {
+        this.intents = 0;
+
+        for(let i = 0; i < intents.length; i++){
+            this.intents += intents[i]
+        }
+        
         /**
          * The prefix used for bot commands.
          * @type {string}
