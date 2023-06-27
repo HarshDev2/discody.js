@@ -140,5 +140,6 @@ export class SlashCommandBuilder {
    */
   setExecute(execute) {
     this.execute = execute;
+    return this;
   }
 }

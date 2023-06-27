@@ -1,3 +1,4 @@
+import { addRole } from "../utils/addRole.js";
 import { banMember } from "../utils/banMember.js";
 import { kickMember } from "../utils/kickMember.js";
 import { Bot } from "./bot.js";
@@ -17,6 +18,9 @@ export class Member {
     this.bot = bot;
     this.guild = guild;
     Object.assign(this, member);
+    this.roles.add = async (id) => {
+      await addRole(this.bot, member.user.id, guild.id, id);
+    }
   }
 
   /**
