@@ -57,12 +57,18 @@ export async function startBot(bot) {
       }
     }
     if (message.t == Events.MESSAGE_CREATE) {
-      const params = message.d.content.split(' ');
-      const desiredParams = params.slice(1);
+      const args = message.d.content.split(' ');
+      let desiredArgs;
+      if(!args[1]){
+        desiredArgs = [];
+      }
+      else {
+        desiredArgs = args.slice(1);
+      }
 
       for(let i = 0; i < bot.message_commands.length; i++) {
-        if(params[0] == bot.prefix + bot.message_commands[i].name){
-          await bot.message_commands[0].execute({ bot: bot, interaction: new Message(bot, message), params: desiredParams});
+        if(args[0] == bot.prefix + bot.message_commands[i].name){
+          await bot.message_commands[0].execute({ bot: bot, interaction: new Message(bot, message), args: desiredArgs});
         }
       }
     }

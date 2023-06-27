@@ -1,4 +1,5 @@
 export class Intents {
+    static ALL = 3276799;
     static GUILDS = 1 << 0;
     static GUILD_MEMBERS = 1 << 1;
     static GUILD_MODERATION = 1 << 2;

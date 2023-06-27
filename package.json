@@ -2,7 +2,7 @@
   "name": "discody",
   "version": "0.1.0",
   "description": "An library that provide an very simple way to make discord bots.",
-  "main": "index.js",
+  "main": "./src/main.js",
   "type": "module",
   "repository": {
     "type": "git",
@@ -12,10 +12,17 @@
     "test": "vitest",
     "dev": "node test-bot/main.js"
   },
-  "keywords": ["discody", "discord", "discord-api", "discord-bot"],
+  "keywords": [
+    "discody",
+    "discord",
+    "discord-api",
+    "discord-bot"
+  ],
   "author": "Harsh Agrawal",
   "license": "ISC",
-  "files": ["dist"],
+  "files": [
+    "src"
+  ],
   "dependencies": {
     "axios": "^1.4.0",
     "ws": "^8.13.0"
