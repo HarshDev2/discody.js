@@ -5,12 +5,14 @@ import { getInvite } from "../utils/getInvite.js";
 import { deleteInvite } from "../utils/deleteInvite.js";
 import { getAuditLogs } from "../utils/getAuditLogs.js";
 import { Channels } from "./channels.js";
+import { Emojis } from "./emojis.js";
 
 export class Guild {
     constructor(bot, guild) {
         this.bot = bot;
-        this.roles = new Roles(bot, guild.roles);
         Object.assign(this, guild);
+        this.roles = new Roles(bot, guild.roles);
+        this.emojis = new Emojis(bot, guild)
         this.members = new Members(bot, guild);
         this.channels = new Channels(bot, guild);
     }
