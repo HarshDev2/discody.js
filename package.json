@@ -1,6 +1,6 @@
 {
   "name": "discody",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "An library that provide an very simple way to make discord bots.",
   "main": "./src/main.js",
   "type": "module",

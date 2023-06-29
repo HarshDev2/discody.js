@@ -8,7 +8,7 @@ export class EmbedBuilder {
      * @constructor
      */
     constructor(){
-        this.embed = {};
+        
     }
     
     /**
@@ -17,7 +17,7 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setTitle(title){
-        this.embed.title = title;
+        this.title = title;
         return this;
     }
     
@@ -27,7 +27,7 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setDescription(description){
-        this.embed.description = description;
+        this.description = description;
         return this;
     }
     
@@ -37,7 +37,7 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setColor(color){
-        this.embed.color = color;
+        this.color = color;
         return this;
     }
     
@@ -51,16 +51,16 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setAuthor({ name, url, icon_url, proxy_icon_url }) {
-        this.embed.author = {};
-        this.embed.author.name = name;
+        this.author = {};
+        this.author.name = name;
         if (url) {
-            this.embed.author.url = url;
+            this.author.url = url;
         }
         if (icon_url) {
-            this.embed.author.icon_url = icon_url;
+            this.author.icon_url = icon_url;
         }
         if (proxy_icon_url) {
-            this.embed.author.proxy_icon_url = proxy_icon_url;
+            this.author.proxy_icon_url = proxy_icon_url;
         }
         return this;
     }
@@ -74,13 +74,13 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setFooter({ text, icon_url, proxy_icon_url }) {
-        this.embed.footer = {};
-        this.embed.footer.text = text;
+        this.footer = {};
+        this.footer.text = text;
         if (icon_url) {
-            this.embed.footer.icon_url = icon_url;
+            this.footer.icon_url = icon_url;
         }
         if (proxy_icon_url) {
-            this.embed.footer.proxy_icon_url = proxy_icon_url;
+            this.footer.proxy_icon_url = proxy_icon_url;
         }
         return this;
     }
@@ -95,16 +95,16 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setThumbnail({ url, proxy_url, height, width }) {
-        this.embed.thumbnail = {};
-        this.embed.thumbnail.url = url;
+        this.thumbnail = {};
+        this.thumbnail.url = url;
         if (proxy_url) {
-            this.embed.thumbnail.proxy_url = proxy_url;
+            this.thumbnail.proxy_url = proxy_url;
         }
         if (height) {
-            this.embed.thumbnail.height = height;
+            this.thumbnail.height = height;
         }
         if (width) {
-            this.embed.thumbnail.width = width;
+            this.thumbnail.width = width;
         }
         return this;
     }
@@ -119,18 +119,18 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setVideo({ url, proxy_url, height, width }) {
-        this.embed.video = {};
+        this.video = {};
         if (url) {
-            this.embed.video.url = url;
+            this.video.url = url;
         }
         if (proxy_url) {
-            this.embed.video.proxy_url = proxy_url;
+            this.video.proxy_url = proxy_url;
         }
         if (height) {
-            this.embed.video.height = height;
+            this.video.height = height;
         }
         if (width) {
-            this.embed.video.width = width;
+            this.video.width = width;
         }
         return this;
     }
@@ -145,16 +145,16 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setImage({ url, proxy_url, height, width }) {
-        this.embed.image = {};
-        this.embed.image.url = url;
+        this.image = {};
+        this.image.url = url;
         if (proxy_url) {
-            this.embed.image.proxy_url = proxy_url;
+            this.image.proxy_url = proxy_url;
         }
         if (height) {
-            this.embed.image.height = height;
+            this.image.height = height;
         }
         if (width) {
-            this.embed.image.width = width;
+            this.image.width = width;
         }
         return this;
     }
@@ -167,12 +167,12 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     setProvider({ name, url }) {
-        this.embed.provider = {};
+        this.provider = {};
         if (name) {
-            this.embed.provider.name = name;
+            this.provider.name = name;
         }
         if (url) {
-            this.embed.provider.url = url;
+            this.provider.url = url;
         }
         return this;
     }
@@ -186,14 +186,14 @@ export class EmbedBuilder {
      * @returns {EmbedBuilder} - The EmbedBuilder instance.
      */
     addField({ name, value, inline }) {
-        if (!this.embed.fields) {
-            this.embed.fields = [];
+        if (!this.fields) {
+            this.fields = [];
         }
         const field = { name, value };
         if (inline) {
             field.inline = inline;
         }
-        this.embed.fields.push(field);
+        this.fields.push(field);
         return this;
     }
 }
