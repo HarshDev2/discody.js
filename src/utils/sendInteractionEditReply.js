@@ -4,8 +4,8 @@ export async function sendInteractionEditReply(bot, interaction, replyMessage, o
   if(!options) options = {};
       const response = await axios.post(`https://discord.com/api/v10/webhooks/${bot.id}/${interaction.token}`, {
         content: replyMessage,
-        embeds: options.embed ? 
-          options.embed
+        embeds: options.embeds ? 
+          options.embeds
         : []
       }, {
         headers: {

@@ -7,7 +7,7 @@ export async function replyMessage(bot, message, replyMessage, options) {
       const response = await axios.post(`https://discord.com/api/v10/channels/${channelId}/messages`, {
         content: replyMessage,
         embeds: options.embeds ?
-          options.embed
+          options.embeds
         : []
       }, {
         headers: {
