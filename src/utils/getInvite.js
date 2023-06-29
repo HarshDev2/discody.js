@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Member } from "../core/member.js";
 
 export async function getInvite(token, code){
     try {
