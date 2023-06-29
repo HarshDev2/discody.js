@@ -4,6 +4,7 @@ import { leaveGuild } from "../utils/leaveGuild.js";
 import { getInvite } from "../utils/getInvite.js";
 import { deleteInvite } from "../utils/deleteInvite.js";
 import { getAuditLogs } from "../utils/getAuditLogs.js";
+import { Channels } from "./channels.js";
 
 export class Guild {
     constructor(bot, guild) {
@@ -11,6 +12,7 @@ export class Guild {
         this.roles = new Roles(bot, guild.roles);
         Object.assign(this, guild);
         this.members = new Members(bot, guild);
+        this.channels = new Channels(bot, guild);
     }
 
     async getAuditLogs(){
