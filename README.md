@@ -22,12 +22,13 @@ npm i discody@latest
 Message Commands and Slash Commands |  ✅
 Embeds | ✅
 Guilds ( Servers ) | ✅
+Emojis | ✅
 Invites | ✅
 Audit Logs | ✅
 Voice Features | ❌
 Sharding | ❌
 Roles Operations | ❌ ( Partial Support right now )
-Channels Operations | ❌
+Channels Operations | ✅ ( Some Function not available right now  )
 Kick / Ban | ✅
 Timeout  | ❌
 Message Commands Arguments | ✅
@@ -40,6 +41,27 @@ Attachments | ❌
 Discody.js is currently in development, don't use it in bots in production environment.
 
 You can test the discody.js library and consider it for future use.
+
+## ChangeLog v0.3.0
+* Added Emojis Support
+* Added Channels Support
+* Updated Reply Function in Both Slash Commands and Message Commands
+
+Instead of sending a single embed, multiple embeds are now supported, if you are sending a single embed, embed have to be wrapped in an array.
+
+and parameter name is also updated from embed to embeds.
+
+```js
+// Old Way -
+
+let embed = new EmbedBuilder().setTitle("hello from embed also");
+interaction.reply("hello", { embed: embed });
+
+// New Way -
+
+let embed = new EmbedBuilder().setTitle("hello from embed also");
+interaction.reply("hello", { embeds: [embed] });
+```
 
 ## Documentation
 
