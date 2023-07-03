@@ -18,7 +18,7 @@ export async function uploadSlashCommands(bot){
     }
 
     for(let i = 0; i < bot.slash_commands.length; i++){
-        let data = await axios.post(`https://discord.com/api/v10/applications/1032836183065116722/commands`, bot.slash_commands[i].command, {
+        let data = await axios.post(`https://discord.com/api/v10/applications/${botId}/commands`, bot.slash_commands[i].command, {
                 headers: {
                     Authorization: `Bot ${bot.token}`
                 }
